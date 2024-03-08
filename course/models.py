@@ -1,5 +1,6 @@
 from django.db import models
 # from individuals.models import Student
+from organizations.models import Organization
 
 # Create your models here.
 class Course(models.Model):  
@@ -23,6 +24,7 @@ class Course(models.Model):
     language = models.CharField(max_length = 50)
     duration_hours = models.DecimalField(max_digits=5, decimal_places = 2) 
     thumbnail_url = models.URLField()
+    organizations = models.ManyToManyField(Organization, related_name="organizations")
     
 class CourseMaterials():
     MATERIAL_PDF = 'PDF'
